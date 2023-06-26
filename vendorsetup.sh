@@ -99,7 +99,13 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
         #Maintainer Stuff
           export OF_MAINTAINER="Pranav Talmale"
-          export FOX_VERSION="R11.1_2"
+          export FOX_VERSION="R11.1_3"
+
+        #Use lz4 ramdisk compression for aosp variant of ofox
+        if [ "$FOX_VARIANT" = "aosp" ]; then
+          export OF_USE_LZ4_COMPRESSION=1
+        fi
+	
 
 	# run a process after formatting data to work-around MTP issues
 	# export OF_RUN_POST_FORMAT_PROCESS="1"   disabling this since it causes issues with a12 decryption
